@@ -4,7 +4,9 @@ let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
 
-function flipCard({target: clickedCard}) {
+function flipCard(event) {
+    //Agora flipCard pega a carta certa com event.currentTarget. Antes, event.target podia apontar para um elemento dentro dela e fazer a virada ou a busca da imagem falharem.
+    const clickedCard = event.currentTarget;
     if(cardOne !== clickedCard && !disableDeck) {
         clickedCard.classList.add("flip");
         if(!cardOne) {
